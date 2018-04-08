@@ -24,11 +24,23 @@ tyx = 1 / (x_size * y_size);
 % copy iter times
 r_num = x_size * y_size * 256;
 copy_num = r_num;
+buffer_size = x_size * y_size;
+buffer_rand_x = randi([1, x_size],buffer_size,1);
+buffer_rand_y = randi([1, y_size],buffer_size,1);
+next_idx = 1;
 
 while(r_num>0)
     % next point
-    xn = randi([1, x_size]);
-    yn = randi([1, y_size]);
+    
+    if(next_idx > buffer_size)
+        buffer_rand_x = randi([1, x_size],buffer_size,1);
+        buffer_rand_y = randi([1, y_size],buffer_size,1);
+        next_idx = 1;
+    end
+    xn = buffer_rand_x(next_idx);
+    yn = buffer_rand_y(next_idx);
+    next_idx = next_idx + 1;
+    
     Fn = im(yn,xn);
     % transfer prob
     a_s_2_n = min(1,  Fn * txy / (Fs * tyx));
