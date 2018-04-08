@@ -9,6 +9,7 @@ end
 end
 
 function r = MarkovCopy(im)
+% Metropolis–Hastings algorithm
 im = im2double(im);
 % create a canvas
 r = zeros(size(im));
