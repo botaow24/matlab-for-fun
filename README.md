@@ -15,5 +15,5 @@ see example.m
 ![image](https://github.com/botaow24/matlab-for-fun/blob/master/01.Markov%20Image%20Copy/example%20result.png)
 
 ### speed: 
-120 seconds for a 512 * 512 * 3 image using parfor
+9.438s for a 512 * 512 * 3 image using parfor
 
