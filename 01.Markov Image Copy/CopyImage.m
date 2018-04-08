@@ -1,7 +1,7 @@
 function  r = CopyImage(im)
 % copy image using Markov chain
 % key feature:
-% slow done image copy by 1000 times;
+% slow down image copy by 1000 times;
 r = zeros(size(im));
 parfor i =  1 : size(r,3)
     r (:,:,i) =  MarkovCopy(im(:,:,i));
@@ -9,6 +9,7 @@ end
 end
 
 function r = MarkovCopy(im)
+% Metropolis–Hastings algorithm
 im = im2double(im);
 % create a canvas
 r = zeros(size(im));
